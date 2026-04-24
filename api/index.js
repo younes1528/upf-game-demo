@@ -2,6 +2,8 @@ import app from '../server/app.js';
 import { initDatabase } from '../server/db.js';
 
 // Initialize database
-initDatabase();
+await initDatabase();
 
-export default app;
+export default async function handler(req, res) {
+  return app(req, res);
+}
