@@ -45,7 +45,7 @@ function Dashboard() {
     const saved = localStorage.getItem('dashboard_useRouletteAnimation')
     return saved !== null ? JSON.parse(saved) : true
   })
-  const [testScore, setTestScore] = useState(1)
+  const [testScore, setTestScore] = useState(10)
   const [maxParticipants, setMaxParticipants] = useState(10)
 
   useEffect(() => {
@@ -581,9 +581,11 @@ function Dashboard() {
                                   setWinner(matches[currentMatchIndex].id, p.id, testScore)
                                   nextMatch()
                                 }}
-                                className="flex-1 py-4 bg-slate-50 hover:bg-blue-600 hover:text-white border-2 border-slate-100 rounded-xl font-bold text-blue-900 transition-all text-sm truncate px-4"
+                                className="flex-1 py-5 bg-blue-50 hover:bg-blue-600 hover:text-white border-2 border-blue-100 rounded-2xl font-black text-blue-900 transition-all text-sm truncate px-4 flex flex-col items-center gap-1 shadow-sm"
                               >
-                                Score for {p.name}
+                                <span className="text-[10px] opacity-50 uppercase">Award</span>
+                                {p.name}
+                                <span className="text-xl">+{testScore}</span>
                               </button>
                             ))}
                           </div>
